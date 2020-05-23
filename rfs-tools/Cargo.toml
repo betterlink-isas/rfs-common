@@ -1,0 +1,29 @@
+[package]
+name = "rfs-tools"
+version = "1.0.0"
+authors = ["ThePuzzlemaker <tpzker@thepuzzlemaker.info>"]
+edition = "2018"
+description = "Tools for ROSTER.FS filesystems"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+serde = "1.0.110" # Serialization and deserialization common lib
+serde_derive = "1.0.110" # Derivation for serde on structs
+serde_json = "1.0.53" # JSON serialization and deserialiation (used to serialize to JSON format)
+clap = "2.33.1" # CLI argument parser
+hex = "0.4.2" # Hex encoding/decoding
+rfs = { path = "../rfs", version = "1.0" } # ROSTER.FS common library
+openssl = { version = "0.10.29", features = [ "vendored" ] } # OpenSSL bindings to Rust
+
+[[bin]]
+name = "rfsdump"
+path = "src/bin/rfsdump.rs"
+
+[[bin]]
+name = "unrfs"
+path = "src/bin/unrfs.rs"
+
+[[bin]]
+name = "mkrfs"
+path = "src/bin/mkrfs.rs"

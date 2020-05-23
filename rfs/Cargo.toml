@@ -1,0 +1,15 @@
+[package]
+name = "rfs"
+version = "1.0.0"
+authors = ["ThePuzzlemaker <tpzker@thepuzzlemaker.info>"]
+edition = "2018"
+description = "A common library for ROSTER.FS utilities written in Rust"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+serde = "1.0.110" # Serialization and deserialization common lib
+serde_derive = "1.0.110" # Derivation for serde on structs
+serde_json = "1.0.53" # JSON serialization and deserialiation (used to serialize to JSON format)
+bincode = "1.2.1" # Binary serialization and deserialization (used to parse binary FS format)
+openssl = { version = "0.10.29", features = ["vendored"] } # Rust OpenSSL bindings
