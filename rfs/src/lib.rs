@@ -98,6 +98,19 @@ pub fn parse_fs(raw_fs: &Vec<u8>) -> Result<Vec<RFSNode>, Box<bincode::ErrorKind
     conf.deserialize(&raw_fs)
 }
 
+/// Parses a raw binary node to a `RFSNode`.
+///
+/// # Arguments
+///
+/// * `raw_node` - The raw binary node
+///
+pub fn parse_node(raw_node: &Vec<u8>) -> Result<Vec<RFSNode>, Box<bincode::ErrorKind>> {
+    let mut def_conf = bincode::config();
+    let conf = def_conf.big_endian();
+
+    conf.deserialize(&raw_node)
+}
+
 /// Serializes a `Vec` of `RFSNode`s into a raw binary filesystem.
 pub fn serialize_fs(fs: &Vec<RFSNode>) -> Result<Vec<u8>, Box<bincode::ErrorKind>> {
     let mut def_conf = bincode::config();
